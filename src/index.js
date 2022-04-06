@@ -1,17 +1,21 @@
 // Main Dependencies
 import React from "react";
-import ReactDOM from "react-dom";
-import { App } from "./App";
+import { createRoot } from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
+
+// Components Dependencies
+import { App } from "./App";
 
 // Styles Dependencies
 import "./styles/global.scss";
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 reportWebVitals();
