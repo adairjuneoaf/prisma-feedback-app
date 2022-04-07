@@ -1,9 +1,10 @@
 // Main Dependencies
 import React, { Fragment, useContext } from "react";
-// import PropTypes from "prop-types";
 
 // Components Dependencies
 import { FeedbackCardItemComponent } from "./FeedbackCardItem";
+import { FeedbackStatsComponent } from "./FeedbackStats";
+import { FeedbackFormComponent } from "./FeedbackForm";
 
 // Contexts Dependencies
 import { FeedbackManagement } from "../contexts/FeedbackManagementContext";
@@ -21,6 +22,8 @@ export const FeedbackListComponent = () => {
 
   return (
     <Fragment>
+      <FeedbackFormComponent />
+      <FeedbackStatsComponent />
       {feedbackList.map((data) => (
         <FeedbackCardItemComponent
           key={data.id}
@@ -32,17 +35,3 @@ export const FeedbackListComponent = () => {
     </Fragment>
   );
 };
-
-// FeedbackListComponent.defaultProps = {
-//   feedbackList: [{}],
-// };
-
-// FeedbackListComponent.propTypes = {
-//   feedbackList: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       rating: PropTypes.number.isRequired,
-//       description: PropTypes.number.isRequired,
-//     })
-//   ),
-// };

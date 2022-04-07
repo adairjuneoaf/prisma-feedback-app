@@ -1,7 +1,17 @@
 // Main Dependecies
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
-export const FeedbackManagement = createContext({ handleDeleteFeedbackById: (id) => {}, feedbackList: [{}] });
+export const FeedbackManagement = createContext({
+  handleDeleteFeedbackById: () => {},
+  feedbackList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      rating: PropTypes.number,
+      description: PropTypes.string,
+    })
+  ),
+});
 
 export const FeedbackManagementProvider = ({ children }) => {
   const [/* idFeedbackDelete */ setIdFeedbackDelete] = useState(0);
