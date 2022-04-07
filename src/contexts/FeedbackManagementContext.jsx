@@ -1,11 +1,14 @@
 // Main Dependecies
 import { createContext, useState } from "react";
 
-export const FeedbackManagement = createContext({ handleDeleteFeedbackById: (id) => {}, feedbackList: [{}] });
+export const FeedbackManagement = createContext({
+  handleDeleteFeedbackById: (id) => {},
+  feedbackList: [{}],
+});
 
 export const FeedbackManagementProvider = ({ children }) => {
-  const [/* idFeedbackDelete */ setIdFeedbackDelete] = useState(0);
-  const [feedbackList /*, setFeedbackList */] = useState([
+  const [idFeedbackDelete, setIdFeedbackDelete] = useState(0);
+  const [feedbackList, setFeedbackList] = useState([
     {
       id: 1,
       rating: 8,
@@ -46,10 +49,13 @@ export const FeedbackManagementProvider = ({ children }) => {
 
   const handleDeleteFeedbackById = (id) => {
     setIdFeedbackDelete(id);
+    console.log(id)
   };
 
   return (
-    <FeedbackManagement.Provider value={{ handleDeleteFeedbackById, feedbackList }}>
+    <FeedbackManagement.Provider
+      value={{ handleDeleteFeedbackById, feedbackList }}
+    >
       {children}
     </FeedbackManagement.Provider>
   );
