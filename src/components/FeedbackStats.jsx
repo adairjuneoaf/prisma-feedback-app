@@ -2,7 +2,7 @@
 import React, { Fragment, useContext } from "react";
 
 // Contexts Dependencies
-import { FeedbackManagement } from "../contexts/FeedbackManagementContext";
+import { FeedbackManagement } from "../contexts/contextFeedbackManagement";
 
 export const FeedbackStatsComponent = () => {
   const { feedbackList } = useContext(FeedbackManagement);
