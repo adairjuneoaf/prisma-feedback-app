@@ -8,13 +8,12 @@ export const FeedbackFormComponent = () => {
   const [userFeedback, setUserFeedback] = useState({});
   const descriptionFeedback = useRef(null);
 
+  console.log(userFeedback);
+
   const handleSubmitMyFeedback = (event) => {
     event.preventDefault();
 
-    if (
-      descriptionFeedback.current.value.trim() === '' ||
-      descriptionFeedback.current.value.length <= 8
-    ) {
+    if (descriptionFeedback.current.value.trim() === "" || descriptionFeedback.current.value.length <= 8) {
       return console.log("Description invalid!");
     }
 
