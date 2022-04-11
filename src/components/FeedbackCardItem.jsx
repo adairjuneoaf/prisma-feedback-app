@@ -6,7 +6,7 @@ import PropsTypes from "prop-types";
 import { FiTrash } from "react-icons/fi";
 
 // Contexts Dependencies
-import { FeedbackManagement } from "../contexts/FeedbackManagementContext";
+import { FeedbackManagement } from "../contexts/contextFeedbackManagement";
 
 export const FeedbackCardItemComponent = ({ id, ratingFeedback, descriptionFeedback }) => {
   const { handleDeleteFeedbackById } = useContext(FeedbackManagement);
