@@ -9,7 +9,7 @@ import { Input } from "./Input";
 import { Rating } from "./Rating";
 import { Button } from "./Button";
 
-export const FeedbackFormComponent = () => {
+export const FeedbackForm = () => {
   const [userFeedback, setUserFeedback] = useState({
     rating: PropTypes.number,
     description: PropTypes.string,
@@ -39,15 +39,16 @@ export const FeedbackFormComponent = () => {
               setUserFeedback((data) => ({ ...data, rating: number }));
             }}
           />
-          <Input
-            description={(text) => {
-              setUserFeedback((data) => ({ ...data, description: text }));
-            }}
-          />
-
-          <Button type="submit" version="secondary">
-            Enviar
-          </Button>
+          <div className="input-group">
+            <Input
+              description={(text) => {
+                setUserFeedback((data) => ({ ...data, description: text }));
+              }}
+            />
+            <Button type="submit" version="secondary">
+              Enviar
+            </Button>
+          </div>
         </form>
       </div>
     </Fragment>

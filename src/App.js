@@ -3,7 +3,7 @@ import React from "react";
 
 // Components Dependencies
 import { HeaderComponent } from "./components/Header";
-import { FeedbackListComponent } from "./components/FeedbackList";
+import { FeedbackList } from "./components/FeedbackList";
 
 // Contexts Dependencies
 import { FeedbackManagementProvider } from "./contexts/contextFeedbackManagement";
@@ -13,7 +13,7 @@ export const App = () => {
     <FeedbackManagementProvider>
       <HeaderComponent text="Prisma Feedback" />
       <div className="container">
-        <FeedbackListComponent />
+        <FeedbackList />
       </div>
     </FeedbackManagementProvider>
   );

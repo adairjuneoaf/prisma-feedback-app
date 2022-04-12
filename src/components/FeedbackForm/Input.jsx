@@ -10,16 +10,14 @@ export const Input = ({ description }) => {
 
   return (
     <Fragment>
-      <div className="input-group">
-        <input
-          type="text"
-          name="description"
-          id="description"
-          placeholder="Deixe aqui o seu feedback..."
-          onChange={selectDescriptionFeedback}
-          ref={descriptionFeedback}
-        />
-      </div>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Deixe aqui o seu feedback..."
+        onChange={selectDescriptionFeedback}
+        ref={descriptionFeedback}
+      />
     </Fragment>
   );
 };

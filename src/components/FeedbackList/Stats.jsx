@@ -2,9 +2,9 @@
 import React, { Fragment, useContext } from "react";
 
 // Contexts Dependencies
-import { FeedbackManagement } from "../contexts/contextFeedbackManagement";
+import { FeedbackManagement } from "../../contexts/contextFeedbackManagement";
 
-export const FeedbackStatsComponent = () => {
+export const Stats = () => {
   const { feedbackList } = useContext(FeedbackManagement);
 
   let averageRatingFeedbacks =

@@ -6,9 +6,9 @@ import PropsTypes from "prop-types";
 import { FiTrash } from "react-icons/fi";
 
 // Contexts Dependencies
-import { FeedbackManagement } from "../contexts/contextFeedbackManagement";
+import { FeedbackManagement } from "../../contexts/contextFeedbackManagement";
 
-export const FeedbackCardItemComponent = ({ id, ratingFeedback, descriptionFeedback }) => {
+export const CardItem = ({ id, ratingFeedback, descriptionFeedback }) => {
   const { handleDeleteFeedbackById } = useContext(FeedbackManagement);
 
   return (
@@ -31,14 +31,14 @@ export const FeedbackCardItemComponent = ({ id, ratingFeedback, descriptionFeedb
 };
 
 // Default Values of Properties
-FeedbackCardItemComponent.defaultProps = {
+CardItem.defaultProps = {
   id: 0,
   ratingFeedback: 0,
   descriptionFeedback: "Description default feedback",
 };
 
 // Typings Properties
-FeedbackCardItemComponent.propsTypes = {
+CardItem.propsTypes = {
   id: PropsTypes.number.isRequired,
   ratingFeedback: PropsTypes.number.isRequired,
   descriptionFeedback: PropsTypes.string.isRequired,
