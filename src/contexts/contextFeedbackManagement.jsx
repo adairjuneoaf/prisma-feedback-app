@@ -3,7 +3,9 @@ import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 
 export const FeedbackManagement = createContext({
-  handleDeleteFeedbackById: () => {},
+  insertNewFeedbackByData: ({ description, rating }) => {},
+  handleDeleteFeedbackById: (id) => {},
+  idFeedbackDelete: PropTypes.number,
   feedbackList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -11,9 +13,6 @@ export const FeedbackManagement = createContext({
       description: PropTypes.string,
     })
   ),
-
-  handleDeleteFeedbackById: (id) => {},
-  feedbackList: [{}],
 });
 
 export const FeedbackManagementProvider = ({ children }) => {
@@ -62,9 +61,13 @@ export const FeedbackManagementProvider = ({ children }) => {
     console.log(id);
   };
 
+  const insertNewFeedbackByData = ({ description, rating }) => {
+    setFeedbackList(...feedbackList, { description, rating });
+  };
+
   return (
     <FeedbackManagement.Provider
-      value={{ handleDeleteFeedbackById, feedbackList }}
+      value={{ handleDeleteFeedbackById, feedbackList, insertNewFeedbackByData, idFeedbackDelete }}
     >
       {children}
     </FeedbackManagement.Provider>

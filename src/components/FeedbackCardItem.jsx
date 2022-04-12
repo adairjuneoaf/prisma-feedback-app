@@ -30,11 +30,14 @@ export const FeedbackCardItemComponent = ({ id, ratingFeedback, descriptionFeedb
   );
 };
 
+// Default Values of Properties
 FeedbackCardItemComponent.defaultProps = {
+  id: 0,
   ratingFeedback: 0,
   descriptionFeedback: "Description default feedback",
 };
 
+// Typings Properties
 FeedbackCardItemComponent.propsTypes = {
   id: PropsTypes.number.isRequired,
   ratingFeedback: PropsTypes.number.isRequired,

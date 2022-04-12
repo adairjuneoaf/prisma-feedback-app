@@ -177,7 +177,7 @@ input:focus {
 .rating li,
 .num-display {
   position: relative;
-  background: #f4f4f4;
+  background: var(--blue-900);
   width: 50px;
   height: 50px;
   padding: 10px;
@@ -202,8 +202,8 @@ input:focus {
 
 .rating li:hover,
 .num-display {
-  background: var(--orange-900);
-  // color: #fff;
+  background-color: var(--orange-900);
+  color: #fff;
 }
 
 [type="radio"] {
@@ -211,8 +211,8 @@ input:focus {
 }
 
 [type="radio"]:checked ~ label {
-  background: var(--orange-900);
-  // color: #fff;
+  background-color: var(--orange-900);
+  color: #fff;
 }
 
 .input-group {
