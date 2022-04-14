@@ -17,6 +17,7 @@ export const Input = ({ description }) => {
         placeholder="Deixe aqui o seu feedback..."
         onChange={selectDescriptionFeedback}
         ref={descriptionFeedback}
+        required
       />
     </Fragment>
   );

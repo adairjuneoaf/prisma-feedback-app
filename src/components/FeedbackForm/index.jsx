@@ -1,8 +1,10 @@
 // Main Dependencies
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import PropTypes from "prop-types";
+import { v4 as uuid } from "uuid";
 
 // Contexts Dependencies
+import { FeedbackManagement } from "../../contexts/contextFeedbackManagement";
 
 // Components Dependencies
 import { Input } from "./Input";
@@ -10,6 +12,8 @@ import { Rating } from "./Rating";
 import { Button } from "./Button";
 
 export const FeedbackForm = () => {
+  const { insertNewFeedbackByData } = useContext(FeedbackManagement);
+
   const [userFeedback, setUserFeedback] = useState({
     rating: PropTypes.number,
     description: PropTypes.string,
@@ -26,7 +30,7 @@ export const FeedbackForm = () => {
       return console.log("Rating selected invalid!");
     }
 
-    return console.log(userFeedback);
+    return insertNewFeedbackByData({ ...userFeedback, id: uuid() });
   };
 
   return (
