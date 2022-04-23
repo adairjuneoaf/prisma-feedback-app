@@ -26,7 +26,7 @@ export const FeedbackForm = () => {
       return console.log("Description invalid!");
     }
 
-    if (userFeedback.rating < 0 || userFeedback.rating > 10) {
+    if (userFeedback.rating < 0 || userFeedback.rating > 10 || userFeedback.rating === (null || undefined)) {
       return console.log("Rating selected invalid!");
     }
 

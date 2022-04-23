@@ -3,9 +3,8 @@ import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 
 export const FeedbackManagement = createContext({
-  insertNewFeedbackByData: ({ id, description, rating }) => {},
-  handleDeleteFeedbackById: (id) => {},
-  idFeedbackDelete: PropTypes.number,
+  insertNewFeedbackByData: () => {},
+  handleDeleteFeedbackById: () => {},
   feedbackList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -16,12 +15,22 @@ export const FeedbackManagement = createContext({
 });
 
 export const FeedbackManagementProvider = ({ children }) => {
-  const [idFeedbackDelete, setIdFeedbackDelete] = useState(0);
   const [feedbackList, setFeedbackList] = useState([]);
 
+  const searchAndDeleteFeedbackInList = (id) => {
+    let newListFeedbacks = feedbackList.filter((feedback) => feedback.id !== id);
+
+    return setFeedbackList(newListFeedbacks);
+  };
+
   const handleDeleteFeedbackById = (id) => {
-    setIdFeedbackDelete(id);
-    console.log(id);
+    let isConfirmDeleteFeedback = window.confirm("Deseja realmente excluir esse Feedback?");
+
+    if (isConfirmDeleteFeedback) {
+      searchAndDeleteFeedbackInList(id);
+    }
+
+    return;
   };
 
   const insertNewFeedbackByData = ({ id, description, rating }) => {
@@ -29,9 +38,7 @@ export const FeedbackManagementProvider = ({ children }) => {
   };
 
   return (
-    <FeedbackManagement.Provider
-      value={{ handleDeleteFeedbackById, feedbackList, insertNewFeedbackByData, idFeedbackDelete }}
-    >
+    <FeedbackManagement.Provider value={{ handleDeleteFeedbackById, feedbackList, insertNewFeedbackByData }}>
       {children}
     </FeedbackManagement.Provider>
   );
